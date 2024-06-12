@@ -1,75 +1,111 @@
-class Policy:
-    def __init__(self, policy_number='', provider_name='', first_name='', last_name='', age=0, smoking_status='', height=0, weight=0):
-        self.policy_number = policy_number
-        self.provider_name = provider_name
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-        self.smoking_status = smoking_status
-        self.height = height
-        self.weight = weight
+public class Policy {
+    private String policyNumber;
+    private String providerName;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String smokingStatus;
+    private int height;
+    private int weight;
 
-    def set_policy_number(self, policy_number):
-        self.policy_number = policy_number
+    public Policy() {
+        this("", "", "", "", 0, "", 0, 0);
+    }
 
-    def get_policy_number(self):
-        return self.policy_number
+    public Policy(String policyNumber, String providerName, String firstName, String lastName, int age, String smokingStatus, int height, int weight) {
+        this.policyNumber = policyNumber;
+        this.providerName = providerName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.smokingStatus = smokingStatus;
+        this.height = height;
+        this.weight = weight;
+    }
 
-    def set_provider_name(self, provider_name):
-        self.provider_name = provider_name
+    public void setPolicyNumber(String policyNumber) {
+        this.policyNumber = policyNumber;
+    }
 
-    def get_provider_name(self):
-        return self.provider_name
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
 
-    def set_first_name(self, first_name):
-        self.first_name = first_name
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
 
-    def get_first_name(self):
-        return self.first_name
+    public String getProviderName() {
+        return providerName;
+    }
 
-    def set_last_name(self, last_name):
-        self.last_name = last_name
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    def get_last_name(self):
-        return self.last_name
+    public String getFirstName() {
+        return firstName;
+    }
 
-    def set_age(self, age):
-        self.age = age
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    def get_age(self):
-        return self.age
+    public String getLastName() {
+        return lastName;
+    }
 
-    def set_smoking_status(self, smoking_status):
-        self.smoking_status = smoking_status
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-    def get_smoking_status(self):
-        return self.smoking_status
+    public int getAge() {
+        return age;
+    }
 
-    def set_height(self, height):
-        self.height = height
+    public void setSmokingStatus(String smokingStatus) {
+        this.smokingStatus = smokingStatus;
+    }
 
-    def get_height(self):
-        return self.height
+    public String getSmokingStatus() {
+        return smokingStatus;
+    }
 
-    def set_weight(self, weight):
-        self.weight = weight
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-    def get_weight(self):
-        return self.weight
+    public int getHeight() {
+        return height;
+    }
 
-    def calculate_bmi(self):
-        return (self.weight * 703) / (self.height ** 2)
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
-    def calculate_insurance_price(self):
-        base_fee = 600
-        additional_fee = 0
+    public int getWeight() {
+        return weight;
+    }
 
-        if self.age > 50:
-            additional_fee += 75
-        if self.smoking_status == 'smoker':
-            additional_fee += 100
-        bmi = self.calculate_bmi()
-        if bmi > 35:
-            additional_fee += (bmi - 35) * 20
+    public double calculateBMI() {
+        return (weight * 703) / (height * height);
+    }
 
-        return base_fee + additional_fee
+    public double calculateInsurancePrice() {
+        double baseFee = 600;
+        double additionalFee = 0;
+
+        if (age > 50) {
+            additionalFee += 75;
+        }
+        if (smokingStatus.equals("smoker")) {
+            additionalFee += 100;
+        }
+        double bmi = calculateBMI();
+        if (bmi > 35) {
+            additionalFee += (bmi - 35) * 20;
+        }
+
+        return baseFee + additionalFee;
+    }
+}
