@@ -10,6 +10,8 @@ public class Demo {
 
     public static void run() {
         ArrayList<Policy> policies = new ArrayList<>();
+        int smokersCount = 0;
+        int nonSmokersCount = 0;
         try (BufferedReader br = new BufferedReader(new FileReader("PolicyInformation.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -25,12 +27,19 @@ public class Demo {
                 // Create Policy object and append to list
                 Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
                 policies.add(policy);
+
+                // Update smoker and non-smoker counts
+                if (smokingStatus.equalsIgnoreCase("smoker")) {
+                    smokersCount++;
+                } else if (smokingStatus.equalsIgnoreCase("non-smoker")) {
+                    nonSmokersCount++;
+                }
             }
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
 
-        // Print details of each policy
+        // Print the details of each policy
         for (Policy policy : policies) {
             System.out.println("\nPolicy Information:");
             System.out.println("Policy Number: " + policy.getPolicyNumber());
@@ -44,5 +53,9 @@ public class Demo {
             System.out.println("Policyholder’s BMI: " + String.format("%.2f", policy.calculateBMI()));
             System.out.println("Policy Price: $" + String.format("%.2f", policy.calculateInsurancePrice()));
         }
+
+        // Display the count of smokers and non-smokers
+        System.out.println("\nNumber of Smokers: " + smokersCount);
+        System.out.println("Number of Non-Smokers: " + nonSmokersCount);
     }
 }
