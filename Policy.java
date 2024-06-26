@@ -1,19 +1,16 @@
 public class Policy {
     private String policyNumber;
     private String providerName;
+    private PolicyHolder policyHolder;
+    private double policyPrice;
 
-    // Other fields and methods as previously defined...
-
-    public Policy() {
-        this("", "");
-    }
-
-    public Policy(String policyNumber, String providerName) {
+    // Constructor, getters, setters, toString() method
+    public Policy(String policyNumber, String providerName, PolicyHolder policyHolder, double policyPrice) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
+        this.policyHolder = policyHolder;
+        this.policyPrice = policyPrice;
     }
-
-    // Other setters, getters, and methods...
 
     public String getPolicyNumber() {
         return policyNumber;
@@ -31,11 +28,28 @@ public class Policy {
         this.providerName = providerName;
     }
 
+    public PolicyHolder getPolicyHolder() {
+        return policyHolder;
+    }
+
+    public void setPolicyHolder(PolicyHolder policyHolder) {
+        this.policyHolder = policyHolder;
+    }
+
+    public double getPolicyPrice() {
+        return policyPrice;
+    }
+
+    public void setPolicyPrice(double policyPrice) {
+        this.policyPrice = policyPrice;
+    }
+
     @Override
     public String toString() {
-        return "Policy{" +
-                "policyNumber='" + policyNumber + '\'' +
-                ", providerName='" + providerName + '\'' +
-                '}';
+        return "Policy Information:\n" +
+                "Policy Number: " + policyNumber + "\n" +
+                "Provider Name: " + providerName + "\n" +
+                policyHolder + "\n" +
+                "Policy Price: $" + String.format("%.2f", policyPrice);
     }
 }
