@@ -3,15 +3,11 @@ public class PolicyHolder {
     private String lastName;
     private int age;
     private String smokingStatus;
-    private int height;  // height in inches
-    private int weight;  // weight in pds
+    private double height;  // Height in inches
+    private double weight;  // Weight in pounds
 
-    // Constructors
-    public PolicyHolder() {
-        this("", "", 0, "", 0, 0);
-    }
-
-    public PolicyHolder(String firstName, String lastName, int age, String smokingStatus, int height, int weight) {
+    // Constructors, getters, setters, toString() method
+    public PolicyHolder(String firstName, String lastName, int age, String smokingStatus, double height, double weight) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -20,64 +16,38 @@ public class PolicyHolder {
         this.weight = weight;
     }
 
-    // Getter and Setter 
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getSmokingStatus() {
         return smokingStatus;
     }
 
-    public void setSmokingStatus(String smokingStatus) {
-        this.smokingStatus = smokingStatus;
-    }
-
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
- @Override
+    @Override
     public String toString() {
-        return "PolicyHolder{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", smokingStatus='" + smokingStatus + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                '}';
+        return "Policyholder Information:\n" +
+                "First Name: " + firstName + "\n" +
+                "Last Name: " + lastName + "\n" +
+                "Age: " + age + "\n" +
+                "Smoking Status: " + smokingStatus + "\n" +
+                "Height: " + height + " inches\n" +
+                "Weight: " + weight + " pounds";
     }
 }
