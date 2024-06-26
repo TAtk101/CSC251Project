@@ -69,5 +69,15 @@ public class PolicyHolder {
         this.weight = weight;
     }
 
-   
+ @Override
+    public String toString() {
+        return "PolicyHolder{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", smokingStatus='" + smokingStatus + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
 }
